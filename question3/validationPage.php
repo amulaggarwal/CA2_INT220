@@ -19,17 +19,17 @@ if (file_exists($target_file)) {
 if (
   $fileType != "pdf" && $fileType != "png"
 ) {
-  echo "Sorry, only PDF and PNG files are supported. <br>";
+  echo "Sorry, only PDF and PNG files are supported. and file". htmlspecialchars(basename($_FILES["fileToUpload"]["name"][$i]))." is not of this type";
   $uploadConfirm = 0;
 }
 
 if ($uploadConfirm == 0) {
-  echo "File ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"][$i]))." cannot be uploaded<br>";
+  echo "File ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"][$i]))." cannot be uploaded<br><br><br><br>";
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
-    echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"][$i])) . " has been uploaded.  <br>";
+    echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"][$i])) . " has been uploaded. <br><br><br> <br>";
   } else {
-    echo "Sorry, there was an error uploading your documents. <br>";
+    echo "Sorry, there was an error uploading your documents. <br><br><br><br>";
   }
 }
 }
